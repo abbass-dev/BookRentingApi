@@ -37,14 +37,6 @@ npm install
     <p>
       Before starting the server, make sure to set up your database and provide your database URL in the .env file. You can use the sample .env file as a template.
     </p>
-    <pre><code>cp .env.example .env</code></pre>
-    <p>
-      To start the server in development mode, run the following command:
-    </p>
-    <pre><code>npm run dev</code></pre>
-    <p>
-      The server will start at <code>http://localhost:3000</code>.
-    </p>
     <h2>Contributing</h2>
     <p>
       Contributions to this project are welcome. To contribute, please follow the standard fork, branch, and pull request workflow. Make sure to run the tests and lint your code before submitting a pull request.
