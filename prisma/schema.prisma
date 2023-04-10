@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  name         String        @unique
+  email        String        @unique
+  password     String
+  address      String
+  isAdmin      Boolean
+  RentRequests Order[]
+}
+
+model Book {
+  id          String        @id @default(cuid())
+  title       String
+  author      String
+  isbn        String        @unique
+  quantity    Int           @default(1)
+  RentRequsts Order[]
+}
+
+model Order {
+  id          String   @id @default(cuid())
+  user        User     @relation(fields: [userId], references: [id])  
+  books        Book[]   
+  rent        RentedBooks? 
+  status      String    //Enum Pending,approved,declined
+  requestDate DateTime @default(now())
+  userId      String
+}
+
+//one to one relationship between Order and Rent 
+
+model RentedBooks{
+  id        String   @id @default(cuid())
+  order     Order    @relation(fields: [oderId],references: [id])
+  startDate DateTime
+  dueDate   DateTime
+  ReturnDate    DateTime  
+  oderId    String @unique 
+}
