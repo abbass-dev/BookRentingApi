@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Book Renting API - README</title>
-  </head>
   <body>
     <h1>Book Renting API - README</h1>
     <p>
